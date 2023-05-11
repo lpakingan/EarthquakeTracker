@@ -2,6 +2,39 @@ var mapsKey;
 
 var parametersModal = document.getElementById('parameter-modal');
 
+var apiKeyForm =  document.getElementById('api-key-form');
+
+var mapsKey = '';
+// Get any saved keys on page load
+loadAPIKey();
+
+function loadAPIKey() {
+    var mapsKey = localStorage.getItem('mapsKey');
+
+    if (!mapsKey) {
+      apiKeyForm.style.display = 'flex';
+      apiKeyForm.addEventListener('submit', handleFormSubmit);
+    } else {
+      apiKeyForm.style.display = 'none';
+      apiKeyForm.removeEventListener('submit', handleFormSubmit);
+    }
+  }
+
+  // Saves the API keys to localStorage
+  function saveAPIKey(mapAPIKey) {
+    localStorage.setItem('mapsKey', mapAPIKey);
+  }
+
+  // When the form is submitted, save the keys to localStorage and then load them into the app
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    var mapAPIKey = $('#map-key').val().trim();
+
+    saveAPIKey(mapAPIKey);
+    loadAPIKey();
+
+  }
+
 $('#location-button').on('click', function() {
     locationInput = $('#search-input').val().trim();
     console.log(locationInput);
