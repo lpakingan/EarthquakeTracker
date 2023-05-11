@@ -2,6 +2,8 @@ var mapsKey;
 
 var parametersModal = document.getElementById('parameter-modal');
 var sortModal = document.getElementById('sort-modal');
+var sortButton = document.querySelector('.sort-button');
+var searchResultsEl = document.querySelector('.earthquake-results');
 
 var apiKeyForm =  document.getElementById('api-key-form');
 
@@ -42,6 +44,8 @@ $('#location-button').on('click', function() {
     $('.earthquake-parameters').text('');
     $('.map-result').empty();
     $('.radius-warning').text('')
+    sortButton.style.display = 'none';
+    searchResultsEl.style.display = 'none';
     findCoordinates(locationInput);
 });
 
@@ -127,9 +131,13 @@ function findEarthquakes(latitude, longitude, searchRadius, minMagnitude, startT
                     $('.earthquakes-message').text('');
                     listEarthquakes(earthquakes);
                     visualizeEarthquakes(earthquakes);
+                    sortButton.style.display = 'block';
+                    searchResultsEl.style.display = 'block';
                 } else if (earthquakes.features.length == 0) {
+                    searchResultsEl.style.display = 'block';
                     $('.earthquakes-message').text('No earthquakes fitting the search parameters were found.')
                 } else if (earthquakes.features.length >= 100) {
+                    searchResultsEl.style.display = 'block';
                     $('.earthquakes-message').text('Too many earthquakes found within search window! Please narrow your parameters.')
                 }
             });

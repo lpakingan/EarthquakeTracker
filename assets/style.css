@@ -158,6 +158,7 @@ h1.display-3 {
     padding: 1rem;
     margin-bottom: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: none;
 }
   
 .earthquake-results h2 {
@@ -184,4 +185,9 @@ h1.display-3 {
 
 ::placeholder {
     text-align: center;
+}
+
+.sort-button {
+    display: none;
+    float: right;
 }
