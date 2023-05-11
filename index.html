@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Earthquake Tracker</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css"/>
+</head>
+
+<body>
+    <header>
+            <h1 class="display-3 font-weight-bold">Earthquake Tracker</h1>
+    </header>
+
+    <main>
+        <section class="search-area">
+            <h2>Search for Location:</h2>
+            <input id="search-input" type="text" placeholder="Enter Location Here!">
+            <p class="warning location-warning"></p>
+            <button id="location-button">Search</button>
+                <div id="parameter-modal" class="modal">
+                    <div class='modal-content'>
+                        <span class="close" style="float: right">&times;</span>
+                        <h1>What parameters?</h1>
+                        <h3>Distance from Location (Default 20km)</h3>
+                        <input id="search-radius" type="text" placeholder="Max search radius">
+                        <p class="warning radius-warning"></p>
+                        <h3>Minimum Magnitude</h3>
+                        <select id="min-magnitude">
+                            <option value="M1.0+">M1.0+</option>
+                            <option value="M2.5+">M2.5+</option>
+                            <option value="M4.5+">M4.5+</option>
+                            <option value="M6.0+">M6.0+</option>
+                        </select>
+                        <h3>Time Range (Default past 7 days to present)</h3>
+                        <label for="start-date">From:</label>
+                        <input type="date" id="start-date" name="start-date">
+                        <p class="start-date-warning warning"></p>
+                        <label for="end-date">To:</label>
+                        <input type="date" id="end-date" name="end-date">
+                        <p class="end-date-warning warning"></p>
+                        <p></p>
+                        <h3>Map Type</h3>
+                        <select id="map-type">
+                            <option value="roadmap">Roadmap</option>
+                            <option value="satellite">Satellite</option>
+                            <option value="terrain">Terrain</option>
+                            <option value="hybrid">Hybrid (Roadmap + Satellite)</option>
+                        </select>
+                        <p></p>
+                        <button id="parameters-button">Submit</button>
+                    </div>
+                </div>
+        </section>
+
+        <section class="earthquake-results">
+            <h2>Earthquake Results:</h2>
+            <p class="earthquakes-message"></p>
+            <p class="earthquake-parameters"></p>
+            <ol class="earthquake-list">
+            
+            </ol>
+        </section>
+
+        <section class="map-result">
+        </section>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="assets/script.js"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+    crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
