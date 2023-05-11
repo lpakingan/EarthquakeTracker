@@ -95,3 +95,43 @@ function findEarthquakes(latitude, longitude, searchRadius, minMagnitude, startT
         }
     });
 };
+
+function listEarthquakes(earthquakes) {
+    $('.earthquake-results ol').empty();
+    $('.earthquake-parameters').text(`Showing ${earthquakes.features.length} earthquakes that happened between ${startTime} to ${endTime} that were M${minMagnitude} or greater`);
+    for(var i = 0; i < earthquakes.features.length; i++) {
+        var earthquakeTime = dayjs.unix(earthquakes.features[i].properties.time/1000).format('M/D/YY [at] hh:mm:ss a')
+        $('.earthquake-results ol').append(`<li>Time: ${earthquakeTime} <br>Place: ${earthquakes.features[i].properties.place} <br>Magnitude: ${earthquakes.features[i].properties.mag}</li>`)
+    }
+}
+
+function visualizeEarthquakes(earthquakes) {
+    earthquakeMarkers = '';
+    locationMarker = '&markers=color:red%7C' + latitude + ',' + longitude;
+
+    for(var i = 0; i < earthquakes.features.length; i++) {
+        earthquakeLon = earthquakes.features[i].geometry.coordinates[0];
+        earthquakeLat = earthquakes.features[i].geometry.coordinates[1];
+        earthquakeMarkers += '&markers=color:blue%7Clabel:' + [i+1] + '%7C' + earthquakeLat + ',' + earthquakeLon;
+    }
+
+    if(searchRadius < 50) {
+        zoom = 10;
+    } else if (searchRadius >= 50 && searchRadius < 150) {
+        zoom = 8;
+    } else if (searchRadius >= 150 && searchRadius <= 300) {
+        zoom = 7;
+    } else {
+        zoom = 5;
+    }
+
+    mapQuery = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=${zoom}&size=800x800&maptype=${mapType}${locationMarker}${earthquakeMarkers}&key=${mapsKey}`;
+    fetch(mapQuery).then(function (response) {
+        if (response.ok) {
+            map = document.createElement('img');
+            map.src = (mapQuery);
+            map.classList = 'map-img';
+            $('.map-result').append(map);
+        }
+    })
+}
