@@ -139,8 +139,11 @@ h1.display-3 {
 }
   
 .earthquake-list {
-    list-style: none;
-    padding
+    padding: 1rem;
+}
+
+.earthquake-list li {
+    padding: 0.5rem;
 }
 
 ::placeholder {
