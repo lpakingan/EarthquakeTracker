@@ -52,3 +52,24 @@ $('#parameters-button').on('click', function () {
         findEarthquakes(latitude, longitude, searchRadius, minMagnitude, startTime, endTime)
     }
 })
+
+function findCoordinates(locationInput) {
+    var geocodingQuery = `https://maps.googleapis.com/maps/api/geocode/json?address=${locationInput}&key=${mapsKey}`;
+    fetch(geocodingQuery).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (searchResults) {
+                results = searchResults;
+                if(results.status == 'OK') {
+                    $('.location-warning').text('')
+                    latitude = results.results[0].geometry.location.lat;
+                    longitude = results.results[0].geometry.location.lng;
+                    parametersModal.style.display = 'block';
+                } else if (results.status == 'ZERO_RESULTS') {
+                    $('.location-warning').text('Zero results found! Please search again.')
+                }
+            });
+        } else {
+            $('.location-warning').text('Please enter a valid location.');
+        }
+    });
+};
