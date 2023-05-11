@@ -73,3 +73,25 @@ function findCoordinates(locationInput) {
         }
     });
 };
+
+function findEarthquakes(latitude, longitude, searchRadius, minMagnitude, startTime, endTime) {
+    var earthquakeQuery = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&latitude=${latitude}&longitude=${longitude}&maxradiuskm=${searchRadius}&minmagnitude=${minMagnitude}&starttime=${startTime}&endtime=${endTime}`
+    fetch(earthquakeQuery).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (earthquakeResults) {
+                earthquakes = earthquakeResults;
+                if(earthquakes.features.length > 0 && earthquakes.features.length < 100) {
+                    $('.earthquakes-message').text('');
+                    listEarthquakes(earthquakes);
+                    visualizeEarthquakes(earthquakes);
+                } else if (earthquakes.features.length == 0) {
+                    $('.earthquakes-message').text('No earthquakes fitting the search parameters were found.')
+                } else if (earthquakes.features.length >= 100) {
+                    $('.earthquakes-message').text('Too many earthquakes found within search window! Please narrow your parameters.')
+                }
+            });
+        } else {
+            alert('Unable to search! Please try again.');
+        }
+    });
+};
