@@ -4,12 +4,11 @@ var parametersModal = document.getElementById('parameter-modal');
 
 var apiKeyForm =  document.getElementById('api-key-form');
 
-var mapsKey = '';
 // Get any saved keys on page load
 loadAPIKey();
 
 function loadAPIKey() {
-    var mapsKey = localStorage.getItem('mapsKey');
+    mapsKey = localStorage.getItem('mapsKey');
 
     if (!mapsKey) {
       apiKeyForm.style.display = 'flex';
@@ -28,7 +27,7 @@ function loadAPIKey() {
   // When the form is submitted, save the keys to localStorage and then load them into the app
   function handleFormSubmit(event) {
     event.preventDefault();
-    var mapAPIKey = $('#map-key').val().trim();
+    mapAPIKey = $('#map-key').val().trim();
 
     saveAPIKey(mapAPIKey);
     loadAPIKey();
