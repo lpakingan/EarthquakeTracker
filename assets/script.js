@@ -200,3 +200,22 @@ function visualizeEarthquakes(earthquakes) {
     }
   });
 }
+
+// Get the help button and modal elements
+var helpButton = document.getElementById("help-button");
+var helpModal = document.getElementById("help-modal");
+
+// Get the close button element
+var closeButton = helpModal.querySelector(".close");
+
+// When the user clicks the help button, show the help modal
+helpButton.addEventListener("click", function () {
+  helpModal.style.display = "block";
+});
+
+// When the user clicks the close button or outside the modal, hide the modal
+window.addEventListener("click", function (event) {
+  if (event.target == helpModal || event.target == closeButton) {
+    helpModal.style.display = "none";
+  }
+});
