@@ -8,7 +8,7 @@ var apiKeyForm = document.getElementById("api-key-form");
 loadAPIKey();
 
 function loadAPIKey() {
-  mapsKey = localStorage.getItem("mapsKey");
+  var mapsKey = localStorage.getItem("mapsKey");
 
   if (!mapsKey) {
     apiKeyForm.style.display = "flex";
@@ -27,7 +27,7 @@ function saveAPIKey(mapAPIKey) {
 // When the form is submitted, save the keys to localStorage and then load them into the app
 function handleFormSubmit(event) {
   event.preventDefault();
-  mapAPIKey = $("#map-key").val().trim();
+  var mapAPIKey = $("#map-key").val().trim();
 
   saveAPIKey(mapAPIKey);
   loadAPIKey();
@@ -88,6 +88,16 @@ $("#parameters-button").on("click", function () {
       endTime
     );
   }
+});
+
+$(".sort-button").on("click", function () {
+  sortModal.style.display = "block";
+});
+
+$(".submit-button").on("click", function () {
+  sortModal.style.display = "none";
+  sortValue = $("#sort-parameters").find(":selected").val();
+  sortMagnitude(sortValue, earthquakes);
 });
 
 function findCoordinates(locationInput) {
