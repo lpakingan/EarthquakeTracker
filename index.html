@@ -61,6 +61,20 @@
 
         <section class="earthquake-results">
             <h2>Earthquake Results:</h2>
+            <button class="sort-button" style="float: right">Sort</button>
+            <div id="sort-modal" class="modal">
+                <div class='modal-content'>
+                    <span class="close" style="float: right">&times;</span>
+                    <select id="sort-parameters">
+                        <option value="most-recent">From Most Recent (Default)</option>
+                        <option value="least-recent">From Least Recent</option>
+                        <option value="descending-mag">Strongest to Weakest</option>
+                        <option value="ascending-mag">Weakest to Strongest</option>
+                    </select>
+                    <p></p>
+                    <button class="submit-button">Submit</button>
+                </div>
+            </div>
             <p class="earthquakes-message"></p>
             <p class="earthquake-parameters"></p>
             <ol class="earthquake-list">
