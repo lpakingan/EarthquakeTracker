@@ -191,3 +191,15 @@ h1.display-3 {
     display: none;
     float: right;
 }
+
+
+.earthquake-list {
+    max-height: 400px; /* Set the maximum height of the list */
+    overflow-y: scroll; /* Add a scrollbar to the list */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+ }
