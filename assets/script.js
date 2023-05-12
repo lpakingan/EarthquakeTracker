@@ -223,6 +223,28 @@ helpButton.addEventListener("click", function () {
   helpModal.style.display = "block";
 });
 
+mapQuery = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=${zoom}&size=800x800&maptype=${mapType}${locationMarker}${earthquakeMarkers}&key=${mapsKey}`;
+fetch(mapQuery).then(function (response) {
+  if (response.ok) {
+    map = document.createElement("img");
+    map.src = mapQuery;
+    map.classList = "map-img";
+    $(".map-result").append(map);
+  }
+});
+
+// Get the help button and modal elements
+var helpButton = document.getElementById("help-button");
+var helpModal = document.getElementById("help-modal");
+
+// Get the close button element
+var closeButton = helpModal.querySelector(".close");
+
+// When the user clicks the help button, show the help modal
+helpButton.addEventListener("click", function () {
+  helpModal.style.display = "block";
+});
+
 // When the user clicks the close button or outside the modal, hide the modal
 window.addEventListener("click", function (event) {
   if (event.target == helpModal || event.target == closeButton) {
