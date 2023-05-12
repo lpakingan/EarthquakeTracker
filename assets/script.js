@@ -4,11 +4,12 @@ var parametersModal = document.getElementById('parameter-modal');
 
 var apiKeyForm =  document.getElementById('api-key-form');
 
+var mapsKey = '';
 // Get any saved keys on page load
 loadAPIKey();
 
 function loadAPIKey() {
-    mapsKey = localStorage.getItem('mapsKey');
+    var mapsKey = localStorage.getItem('mapsKey');
 
     if (!mapsKey) {
       apiKeyForm.style.display = 'flex';
@@ -27,7 +28,7 @@ function loadAPIKey() {
   // When the form is submitted, save the keys to localStorage and then load them into the app
   function handleFormSubmit(event) {
     event.preventDefault();
-    mapAPIKey = $('#map-key').val().trim();
+    var mapAPIKey = $('#map-key').val().trim();
 
     saveAPIKey(mapAPIKey);
     loadAPIKey();
@@ -166,4 +167,59 @@ function visualizeEarthquakes(earthquakes) {
             $('.map-result').append(map);
         }
     })
+}
+
+var searchBar = document.getElementById('#search-input');
+var searchHistory = document.getElementById('#searchHistory');
+
+// Event listener for when the search bar is clicked
+searchBar.addEventListener('click', function() {
+  //showRecentSearches(this);
+  console.log('test');
+});
+
+// Event listener for when a search is submitted
+searchBar.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    saveSearch(this.value);
+  }
+});
+
+// Function to show recent searches
+function showRecentSearches(searchInput) {
+  // Clear previous search history
+  searchHistory.innerHTML = '';
+
+  // Retrieve search history from local storage
+  const searches = JSON.parse(localStorage.getItem('searches')) || [];
+
+  // Display each search item in the search history
+  searches.forEach(function(search) {
+    const li = document.createElement('li');
+    li.textContent = search;
+    li.addEventListener('click', function() {
+      searchInput.value = search;
+      // Perform search based on selected item
+      performSearch(search);
+    });
+    searchHistory.appendChild(li);
+  });
+}
+
+// Function to save a search
+function saveSearch(search) {
+  // Retrieve existing search history from local storage
+  const searches = JSON.parse(localStorage.getItem('searches')) || [];
+
+  // Add the new search to the array
+  searches.push(search);
+
+  // Store the updated search history in local storage
+  localStorage.setItem('searches', JSON.stringify(searches));
+}
+
+// Function to perform a search
+function performSearch(search) {
+  // Perform the search with the given search term
+  console.log('Performing search for:', search);
 }
