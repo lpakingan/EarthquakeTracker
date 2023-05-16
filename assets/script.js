@@ -60,6 +60,9 @@ function handleSearch(){
     locationInput = $('#search-input').val().trim();
     console.log(locationInput);
 
+    if(locationInput == '' || !locationInput) {
+        $('.location-warning').text('Please enter a valid location.');
+    } else {
     //Clear Previous Search Results and Params
     clearPreviousResults();
 
@@ -68,6 +71,7 @@ function handleSearch(){
 
     //Find results and display
     findCoordinates(locationInput);
+    }
 }
 
 // Main Search function with Given Search Input (used for clicking history list)

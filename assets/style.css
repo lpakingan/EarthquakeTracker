@@ -100,8 +100,7 @@ h1.display-3 {
     color: red;
     font-style: bold;
     font-size: 0.8rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0;
+    margin: 0.5rem;
 }
   
 #location-button {
@@ -249,7 +248,7 @@ h1.display-3 {
 }
 
 .earthquake-list {
-    height: 55vh;
+    height: 50vh;
     overflow-y: auto; /* Add a scrollbar to the list */
     display: flex;
     flex-direction: column;
