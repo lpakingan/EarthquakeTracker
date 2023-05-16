@@ -9,7 +9,7 @@
 
 <body>
     <header>
-            <h1 class="display-3 font-weight-bold">Earthquake Tracker</h1>
+            <h1 class="display-3">Earthquake Tracker</h1>
               <button id="help-button">Help</button>
       <div id="help-modal" class="modal">
         <div class="modal-content">
@@ -92,11 +92,13 @@
         </section>
 
         <section class="earthquake-results">
+          <section class="earthquakes-window">
             <h2>Earthquake Results:</h2>
             <button class="sort-button" style="float: right">Sort</button>
             <div id="sort-modal" class="modal">
                 <div class='modal-content'>
                     <span class="close" style="float: right">&times;</span>
+                    <h3>How would you like to sort your earthquake results?</h3>
                     <select id="sort-parameters">
                         <option value="most-recent">From Most Recent (Default)</option>
                         <option value="least-recent">From Least Recent</option>
@@ -112,9 +114,10 @@
             <ol class="earthquake-list">
             
             </ol>
-        </section>
+          </section>
 
-        <section class="map-result">
+          <section class="map-result">
+          </section>
         </section>
 
     </main>

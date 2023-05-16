@@ -238,7 +238,7 @@ function findEarthquakes(latitude, longitude, searchRadius, minMagnitude, startT
                     listEarthquakes(earthquakes);
                     visualizeEarthquakes(earthquakes);
                     sortButton.style.display = 'block';
-                    searchResultsEl.style.display = 'block';
+                    searchResultsEl.style.display = 'flex';
                 } else if (earthquakes.features.length == 0) {
                     searchResultsEl.style.display = 'block';
                     $('.earthquakes-message').text('No earthquakes fitting the search parameters were found.')

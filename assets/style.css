@@ -34,7 +34,12 @@ h1.display-3 {
 }
 
 #api-key-form {
-    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
     border: 2px solid gray;
     padding: 20px;
     border-radius: 10px;
@@ -47,7 +52,7 @@ h1.display-3 {
   
 #api-key-form input[type="password"] {
     width: 100%;
-    padding: 10px;
+    padding: 10px 0;
     margin-bottom: 10px;
     font-size: 16px;
     border: 1px solid gray;
@@ -84,7 +89,7 @@ h1.display-3 {
   
 #search-input {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.5rem 0.2rem;
     border: 2px solid #ccc;
     border-radius: 4px;
     margin-bottom: 1rem;
@@ -135,6 +140,13 @@ h1.display-3 {
     background-color: rgb(160, 202, 199)
 }
 
+.modal-content h3 {
+    line-height: 120%;
+}
+
+#min-magnitude {
+    margin-bottom: 1rem;
+}
   
 .close {
     color: #888;
@@ -150,17 +162,34 @@ h1.display-3 {
     text-decoration: none;
     cursor: pointer;
 }
+
+#parameters-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer; 
+}
   
 /* Earthquake results styles */
   
 .earthquake-results {
+    height: 65vh;
     background-color: #fff;
     padding: 1rem;
     margin-bottom: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     display: none;
+    justify-content: space-around;
+    flex: 1;
 }
   
+.earthquakes-window {
+    padding: 0 2rem;
+    width: 60vh;
+}
+
 .earthquake-results h2 {
     margin-bottom: 0.5rem;
 }
@@ -173,10 +202,6 @@ h1.display-3 {
 .earthquake-parameters {
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
-}
-  
-.earthquake-list {
-    padding: 1rem;
 }
 
 .earthquake-list li {
@@ -191,25 +216,46 @@ h1.display-3 {
     padding: 3px;
 }
 
-
 .sort-button {
     display: none;
-    float: right;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    cursor: pointer;
 }
 
+#sort-parameters {
+    font-size: 15px;
+}
+
+.submit-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
 .earthquake-list {
-    max-height: 400px; /* Set the maximum height of the list */
-    overflow-y: scroll; /* Add a scrollbar to the list */
-    padding: 0;
-    margin: 0;
-    list-style: none;
+    height: 55vh;
+    overflow-y: auto; /* Add a scrollbar to the list */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 1rem;
+    padding-left: 2rem;
+    flex: 1;
  }
 
-
+ .map-result {
+    display: flex;
+    align-content: center;
+ }
 
 #help-button {
     position: fixed;
