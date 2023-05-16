@@ -51,6 +51,7 @@ $('#location-button').on('click', function() {
 
 $('.close').on('click', function () {
     parametersModal.style.display = 'none';
+    sortModal.style.display = 'none';
 })
 
 $('#parameters-button').on('click', function () {
