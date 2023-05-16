@@ -106,6 +106,7 @@ function clearPreviousResults(){
 //Hides Modal on clicking close
 $('.close').on('click', function () {
     parametersModal.style.display = 'none';
+    sortModal.style.display = 'none';
 })
 
 //Submits final Search with EQ parameters

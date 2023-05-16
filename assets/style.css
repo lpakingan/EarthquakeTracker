@@ -217,7 +217,8 @@ h1.display-3 {
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    margin: 1rem;
+    margin: 0 1rem;
+    margin-bottom: 0.5rem;
     cursor: pointer;
     font-size: 15px;
 }
@@ -304,6 +305,24 @@ h1.display-3 {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #bdbdbd;
+}
+  
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #1f1f1f;
+}
+  
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #797979;
 }
   
 @media screen and (max-width: 1000px) {
