@@ -6,6 +6,9 @@ var parametersModal = document.getElementById('parameter-modal');
 var apiKeyForm =  document.getElementById('api-key-form');
 var searchHistory = document.getElementById('searchHistory');
 var searchInput = document.getElementById('search-input');
+var sortModal = document.getElementById('sort-modal');
+var sortButton = document.querySelector('.sort-button');
+var searchResultsEl = document.querySelector('.earthquake-results');
 
 // Get any saved keys on page load
 loadAPIKey();
@@ -90,6 +93,8 @@ function clearPreviousResults(){
     $('.earthquake-parameters').text('');
     $('.map-result').empty();
     $('.radius-warning').text('');
+    sortButton.style.display = 'none';
+    searchResultsEl.style.display = 'none';
     // Clear previous search history
     searchHistory.innerHTML = '';
 }
@@ -141,6 +146,16 @@ $('#parameters-button').on('click', function () {
         parametersModal.style.display = 'none';
         findEarthquakes(latitude, longitude, searchRadius, minMagnitude, startTime, endTime)
     }
+})
+
+$('.sort-button').on('click', function () {
+    sortModal.style.display = 'block';
+})
+
+$('.submit-button').on('click', function () {
+    sortModal.style.display = 'none'
+    sortValue = $('#sort-parameters').find(':selected').val();
+    sortMagnitude(sortValue, earthquakes);
 })
 
 //Saves search to storage
