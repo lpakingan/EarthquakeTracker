@@ -186,6 +186,11 @@ h1.display-3 {
 ::placeholder {
     text-align: center;
 }
+.search-history-item {
+    cursor: pointer;
+    padding: 3px;
+}
+
 
 .sort-button {
     display: none;
