@@ -188,7 +188,7 @@ function savesearchtostorage(locationInput) {
     const last5Searches = searches.slice(-5);
     last5Searches.forEach(function(search) {
         console.log('creating element...');
-        const li = document.createElement('li');
+        const li = document.createElement('button');
         li.textContent = search;
         // add style to cursor
         li.classList.add('search-history-item')
@@ -398,6 +398,27 @@ function sortMagnitude (sortValue, earthquakes) {
     }
 }
 
+function init() {
+    const searches = JSON.parse(localStorage.getItem('searches')) || []
+
+    const last5Searches = searches.slice(-5);
+    last5Searches.forEach(function(search) {
+        console.log('creating element...');
+        const li = document.createElement('button');
+        li.textContent = search;
+        // add style to cursor
+        li.classList.add('search-history-item')
+
+        //Add event listener to be able to click history
+        li.addEventListener('click', function() {
+            //Perform search based on selected item
+            handleHistorySearch(li.textContent);
+        });           
+        searchHistory.appendChild(li);
+    });
+}
+
+init();
 
 // Get the help button and modal elements
 var helpButton = document.getElementById("help-button");

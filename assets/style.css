@@ -103,8 +103,6 @@ h1.display-3 {
     margin-top: 0.5rem;
     margin-bottom: 0;
 }
-
-
   
 #location-button {
     background-color: #333;
@@ -114,6 +112,8 @@ h1.display-3 {
     border-radius: 4px;
     cursor: pointer;
     margin-bottom: 1rem;
+    width: 100%;
+    font-size: 20px;
 }
   
 /* Modal styles */
@@ -211,9 +211,16 @@ h1.display-3 {
 ::placeholder {
     text-align: center;
 }
+
 .search-history-item {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin: 0 2rem;
     cursor: pointer;
-    padding: 3px;
+    font-size: 15px;
 }
 
 .sort-button {
