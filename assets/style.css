@@ -332,10 +332,11 @@ h1.display-3 {
     }
 
     .earthquakes-window {
+        margin: auto;
         background-color: #fff;
         overflow-y: auto;
         height: 50%;
-        width: 90%;
+        width: 80%;
     }
 
     .earthquake-list {
@@ -343,9 +344,8 @@ h1.display-3 {
         flex: 1;
     }
 
-    .map-result {
+    .map-result img{
         width: 100%;
-        height: 60%;
         padding: 2rem 0;
         justify-content: center;
     }
