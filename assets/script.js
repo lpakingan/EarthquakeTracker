@@ -60,6 +60,9 @@ function handleSearch(){
     locationInput = $('#search-input').val().trim();
     console.log(locationInput);
 
+    if(locationInput == '' || !locationInput) {
+        $('.location-warning').text('Please enter a valid location.');
+    } else {
     //Clear Previous Search Results and Params
     clearPreviousResults();
 
@@ -68,6 +71,7 @@ function handleSearch(){
 
     //Find results and display
     findCoordinates(locationInput);
+    }
 }
 
 // Main Search function with Given Search Input (used for clicking history list)
@@ -102,6 +106,7 @@ function clearPreviousResults(){
 //Hides Modal on clicking close
 $('.close').on('click', function () {
     parametersModal.style.display = 'none';
+    sortModal.style.display = 'none';
 })
 
 //Submits final Search with EQ parameters
@@ -188,7 +193,7 @@ function savesearchtostorage(locationInput) {
     const last5Searches = searches.slice(-5);
     last5Searches.forEach(function(search) {
         console.log('creating element...');
-        const li = document.createElement('li');
+        const li = document.createElement('button');
         li.textContent = search;
         // add style to cursor
         li.classList.add('search-history-item')
@@ -238,7 +243,7 @@ function findEarthquakes(latitude, longitude, searchRadius, minMagnitude, startT
                     listEarthquakes(earthquakes);
                     visualizeEarthquakes(earthquakes);
                     sortButton.style.display = 'block';
-                    searchResultsEl.style.display = 'block';
+                    searchResultsEl.style.display = 'flex';
                 } else if (earthquakes.features.length == 0) {
                     searchResultsEl.style.display = 'block';
                     $('.earthquakes-message').text('No earthquakes fitting the search parameters were found.')
@@ -398,6 +403,27 @@ function sortMagnitude (sortValue, earthquakes) {
     }
 }
 
+function init() {
+    const searches = JSON.parse(localStorage.getItem('searches')) || []
+
+    const last5Searches = searches.slice(-5);
+    last5Searches.forEach(function(search) {
+        console.log('creating element...');
+        const li = document.createElement('button');
+        li.textContent = search;
+        // add style to cursor
+        li.classList.add('search-history-item')
+
+        //Add event listener to be able to click history
+        li.addEventListener('click', function() {
+            //Perform search based on selected item
+            handleHistorySearch(li.textContent);
+        });           
+        searchHistory.appendChild(li);
+    });
+}
+
+init();
 
 // Get the help button and modal elements
 var helpButton = document.getElementById("help-button");
