@@ -29,10 +29,10 @@ Use the zoom and pan controls on the map to explore different areas.
 You can go the website with this URL. 
 https://jedichang99.github.io/Code-Quiz/
 
-![The Whole Page](assets/photos/whole_page.png)
-![Pre-saved citys](assets/photos/pre-set_citys.png)
-![Enter a city in this box](assets/photos/Enter_a_city.png)
-![Forcast Section](assets/photos/forcast.png)
+![The Whole Page](assets/photos/Screenshot 2023-05-17 at 10.01.08 PM)
+![Help botton](assets/photos/Screenshot 2023-05-17 at 10.01.31 PM)
+![Data section](assets/photos/Screenshot 2023-05-17 at 10.01.44 PM)
+![Map with Data](assets/photos/Screenshot 2023-05-17 at 10.01.17 PM)
 
 ## Credits
 
