@@ -1,43 +1,41 @@
-# project-1-earthquake-tracker
+# The Earthquake Tracker
 
 ## Description
 
-The purpose of this project was to display earth quakes in the area with the help of API's. We used an earth quake API that displays earth quakes acording to the data you put in. We also use the google maps API to display a map of the data. 
+The Earthquake Tracker displays earthquakes in a specified search area with the help of APIs. We used the [USGS Earthquake Catalog API](https://earthquake.usgs.gov/fdsnws/event/1/) that displays earthquakes according to search parameters you put in. We also used the [Google Maps API](https://developers.google.com/maps) to display an updated static map of the data, with markers marking earthquakes that fit the search parameter criteria. 
 
-## Table of Contents
-
-- [Weather\_Dashboard](#weather_dashboard)
-  - [Description](#description)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Credits](#credits)
-  - [License](#license)
+### User Story
+```
+As a potential home buyer that wants to protect my 40 year purchase,
+I want a map that shows earthquakes that occurred in the past 30 years,
+So that I can decide to purchase earthquake insurance
+```
 
 ## Installation
 
-N/A
+No installation is required to use the application. All you need is a Google Maps API key (instructions on how to obtain one can be found [here](https://developers.google.com/maps/documentation/javascript/get-api-key)).
+
+The deployed application can be accessed at [this link](https://lpakingan.github.io/project-1-earthquake-tracker/).
 
 ## Usage
 
-Now you can go about the web page see all the earth quakes that happend within a given time. The instructions is as follows: 
-Enter a location in the search bar and click "Search".
-Adjust the search parameters as desired, and click "Submit".
-The earthquake results will be displayed in a list on the left, and a map with markers for each earthquake will be displayed on the right.
-Click on an earthquake in the list or on a marker on the map to view more details about that earthquake.
-Use the zoom and pan controls on the map to explore different areas. 
-You can go the website with this URL. 
-https://jedichang99.github.io/Code-Quiz/
+To conduct a search of earthquakes and a visualization of any searched results:
 
-![The Whole Page](assets/photos/Screenshot 2023-05-17 at 10.01.08 PM)
-![Help botton](assets/photos/Screenshot 2023-05-17 at 10.01.31 PM)
-![Data section](assets/photos/Screenshot 2023-05-17 at 10.01.44 PM)
-![Map with Data](assets/photos/Screenshot 2023-05-17 at 10.01.17 PM)
+**For first time users of the tracker:** You will need to input your Google Maps API key in the pop up to store it. Once you enter a valid API key, your key will be stored and will be accessible for use each time you visit the tracker until you empty your local storage.
+
+1. Enter a location in the search bar and click "Search". 
+   Any location searches you input will be stored and your 5 most recent searches can be easily accessed.
+2. Adjust the search parameters as desired, and click "Submit".
+3. The earthquake results will be displayed in a numbered list on the left, and a map with markers for each earthquake will be displayed on the right.
+4. If you would like to sort your results, you can click on the "Sort" button above the earthquakes list. You can sort by either time or magnitude. If you enter a sort parameter, the map will also dynamically update to display your newly sorted results. 
 
 ## Credits
+Special thanks to the collaborators of this project:
 
-N/A
+Jedidiah Chang
+Rick Quinbar
+Liana Pakingan
 
 ## License
 
-Please refer to the LICENSE in the repo.
+N/A
