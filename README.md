@@ -2,7 +2,7 @@
 
 ## Description
 
-The Earthquake Tracker displays earthquakes in a specified search area with the help of APIs. We used the [USGS Earthquake Catalog API](https://earthquake.usgs.gov/fdsnws/event/1/) that displays earthquakes according to search parameters you put in. We also used the [Google Maps API](https://developers.google.com/maps) to display an updated static map of the data, with markers marking earthquakes that fit the search parameter criteria. 
+The Earthquake Tracker displays earthquakes in a specified search area with the help of APIs. We used the [USGS Earthquake Catalog API](https://earthquake.usgs.gov/fdsnws/event/1/) that displays earthquakes according to search parameters you specify based on distance, magnitude, and time range. We also used the [Google Maps API](https://developers.google.com/maps) to display an updated static map of the data, with markers marking earthquakes that fit the search parameter criteria. 
 
 ### User Story
 ```
@@ -36,13 +36,15 @@ To conduct a search of earthquakes and a visualization of any searched results:
 
 ![](https://github.com/lpakingan/project-1-earthquake-tracker/blob/liana-final-edit/assets/photos/updated_results.jpg)
 
-4. If you would like to sort your results, you can click on the "Sort" button above the earthquakes list. You can sort by either time or magnitude. If you enter a sort parameter, the map will also dynamically update to display your newly sorted results. 
+4. If you would like to sort your results, you can click on the "Sort" button above the earthquakes list. You can sort by either time or magnitude. If you enter a sort parameter, the map will also dynamically update to display your newly sorted results.
+
+These instructions can also be found by clicking on the 'Help' button in the application.
 
 ## Credits
 Special thanks to the collaborators of this project:
 
-Jedidiah Chang (jedichang99)
-Rick Quinbar (RQuinbar)
+Jedidiah Chang (jedichang99)\
+Rick Quinbar (RQuinbar)\
 Liana Pakingan (lpakingan)
 
 ## License
